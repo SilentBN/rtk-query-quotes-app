@@ -7,6 +7,8 @@ export const quotesApi = createApi({
   reducerPath: "quotesApi",
   // Setting up the base query with the base URL pointing to the backend service
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:9009/api/" }),
+  // Defining the tags for the API slice
+  tagTypes: ["Quotes"],
   // Endpoint definitions
   endpoints: (builder) => ({
     // getQuotes endpoint - fetches all quotes

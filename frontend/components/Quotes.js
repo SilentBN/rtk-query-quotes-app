@@ -8,9 +8,13 @@ import {
 } from "../state/quotesApi"; // Import Slice
 
 export default function Quotes() {
-  const { data: quotes, isLoading, isError, error } = useGetQuotesQuery(); // Add the useGetQuotesQuery hook
-  const [deleteQuote] = useDeleteQuoteMutation(); // Add the deleteQuote mutation
-  const [toggleFake] = useToggleFakeMutation(); // Add the toggleFake mutation
+  const {
+    data: quotes,
+    isLoading: gettingQuotes,
+    isFetching: refreshingQuotes,
+  } = useGetQuotesQuery(); // Add the useGetQuotesQuery hook
+  const [deleteQuote, { isLoading: deletingQuote }] = useDeleteQuoteMutation(); // Add the deleteQuote mutation
+  const [toggleFake, { isLoading: togglingQuote }] = useToggleFakeMutation(); // Add the toggleFake mutation
   // Add the displayAllQuotes state
   const displayAllQuotes = useSelector(
     (state) => state.quotesState.displayAllQuotes
@@ -21,12 +25,14 @@ export default function Quotes() {
   );
   const dispatch = useDispatch(); // Add the dispatch function
 
-  // Add the loading and error states
-  if (isLoading) return <div>Loading quotes...</div>;
-  if (isError) return <div>Error loading quotes: {error.message}</div>;
   return (
     <div id="quotes">
-      <h3>Quotes</h3>
+      <h3>
+        Quotes
+        {togglingQuote && "Loading..."}
+        {deletingQuote && "Deleting..."}
+        {gettingQuotes || refreshingQuotes}
+      </h3>
       <div>
         {quotes
           ?.filter((qt) => {
