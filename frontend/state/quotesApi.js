@@ -9,10 +9,12 @@ export const quotesApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:9009/api/" }),
   // Endpoint definitions
   endpoints: (builder) => ({
+    // getQuotes endpoint - fetches all quotes
     getQuotes: builder.query({
       query: () => "quotes",
       providesTags: ["Quotes"],
     }),
+    // createQuote endpoint - creates a new quote
     createQuote: builder.mutation({
       query: (quote) => ({
         url: "quotes",
@@ -21,6 +23,7 @@ export const quotesApi = createApi({
       }),
       invalidatesTags: ["Quotes"],
     }),
+    // deleteQuote endpoint - deletes a quote by ID
     deleteQuote: builder.mutation({
       query: (id) => ({
         url: `quotes/${id}`,
@@ -28,6 +31,7 @@ export const quotesApi = createApi({
       }),
       invalidatesTags: ["Quotes"],
     }),
+    // toggleFake endpoint - toggles the apocryphal status of a quote
     toggleFake: builder.mutation({
       query: ({ id, apocryphal }) => ({
         url: `quotes/${id}`,
