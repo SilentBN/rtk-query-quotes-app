@@ -1,6 +1,6 @@
-import React from 'react'
-import Quotes from './Quotes'
-import QuoteForm from './QuoteForm'
+import React from "react";
+import Quotes from "./Quotes";
+import QuoteForm from "./QuoteForm";
 
 export default function App() {
   return (
@@ -9,5 +9,5 @@ export default function App() {
       <Quotes />
       <QuoteForm />
     </div>
-  )
+  );
 }
