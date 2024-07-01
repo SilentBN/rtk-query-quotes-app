@@ -22,7 +22,7 @@
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "css-loader": "^6.10.0",
-    "eslint": "^8.56.0",
+    "eslint": "^9.6.0",
     "eslint-plugin-react": "^7.33.2",
     "file-loader": "^6.2.0",
     "fkill-cli": "^8.0.0",
