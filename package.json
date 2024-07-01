@@ -34,7 +34,7 @@
     "msw": "^2.1.7",
     "nodemon": "^3.1.4",
     "string-replace-loader": "^3.1.0",
-    "webpack": "^5.90.1",
+    "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   },
